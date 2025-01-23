@@ -108,3 +108,42 @@ minstack.push(30)
 minstack.push(1)
 
 console.log(minstack.getMin())
+
+// Palindrome or not 
+function isPalindrome(str){
+    let n = str.length
+    let stack = []
+    for(let i = 0 ; i<Math.floor(n / 2) ; i++){
+        stack.push(str[i]);
+    }
+
+    const start = n % 2 === 0 ? Math.floor(n / 2) : Math.floor(n / 2) + 1;
+
+    for(let i = start ; i < n ; i++){
+        if(stack.pop() !== str[i]){
+            return false 
+        }
+    }
+
+    return true 
+}
+
+console.log('palindrome : ' , isPalindrome('malayalam'))
+
+// reverse a string 
+
+function reverse(s){
+    let stack = [];
+
+    for(let i = 0 ; i < s.length ; i++){
+        stack.push(s[i])
+    }
+    let reversed = '';
+
+    for(let i = 0 ; i<s.length ; i++){
+        reversed += stack.pop()
+    }
+    return reversed
+}
+
+console.log(reverse('mala'))
