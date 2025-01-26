@@ -118,7 +118,6 @@ class QueueToStack{
         const poppedElement = this.queue1.shift();
         [this.queue1 , this.queue2] = [this.queue2 , this.queue1]
         return poppedElement
-
     }
 
     peek(){
