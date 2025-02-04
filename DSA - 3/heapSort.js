@@ -1,6 +1,7 @@
 // Heap Sort
 // Heap Sort is a comparison-based sorting algorithm that uses a binary 
 // heap (Min Heap or Max Heap) to sort elements in O(n log n) time.
+
 function heapSort(arr) {
     let n = arr.length;
   
@@ -17,7 +18,7 @@ function heapSort(arr) {
       // Heapify the reduced heap
       heapify(arr, i, 0);
     }
-  
+
     return arr;
 }
 
