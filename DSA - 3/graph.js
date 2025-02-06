@@ -80,6 +80,38 @@ class Graph {
         delete this.adjacencyList[vertex]
     }
 
+    dfs(start, visited = new Set()) {
+        if (!this.adjacencyList[start]) return;
+        
+        console.log(start);
+        visited.add(start);
+        
+        for (let neighbor of this.adjacencyList[start]) {
+          if (!visited.has(neighbor)) {
+            this.dfs(neighbor, visited);
+          }
+        }
+      }
+
+      bfs(start) {
+        const queue = [start];
+        const visited = new Set();
+        visited.add(start);
+      
+        while (queue.length) {
+          const vertex = queue.shift();
+          console.log(vertex);
+      
+          for (let neighbor of this.adjacencyList[vertex]) {
+            if (!visited.has(neighbor)) {
+              visited.add(neighbor);
+              queue.push(neighbor);
+            }
+          }
+        }
+      }
+
+      
     display() {
         for(let vertex in this.adjacencyList) {
             console.log(vertex + '-->' + [...this.adjacencyList[vertex]])
@@ -96,6 +128,9 @@ graph.addEdge('A' , 'B')
 graph.addEdge('B' , 'C')
 graph.removeEdge('A' , 'B')
 graph.removeVertex('A')
+
+graph.dfs('B')
+graph.bfs('B')
 
 graph.display()
 // console.log('Edge Has : ' , graph.hasEdge('A' , 'B'))
